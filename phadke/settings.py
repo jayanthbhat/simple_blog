@@ -78,14 +78,15 @@ WSGI_APPLICATION = 'phadke.wsgi.application'
 
 import dj_database_url
 proj_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(proj_db)
+# DATABASES['default'].update(proj_db)
+DATABASES = { 'default': dj_database_url.config() }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
