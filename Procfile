@@ -1,0 +1,1 @@
+web: gunicorn phadke.wsgi --log-file -
