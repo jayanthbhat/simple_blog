@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from phadke_app.views import home
+from phadke_app.views import home,add_posts,list_posts,view_post
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,7 +23,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', home, name='home')
+    path('', home, name='home'),
+    path('add_post/', add_posts, name='add_posts'),
+    path('view_post/<int:pk>/', view_post, name='view_post'),
+    path('list_posts/', list_posts, name='list_posts'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
